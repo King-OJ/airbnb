@@ -3,9 +3,10 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import Avatar from '../Avatar'
 import { useCallback, useState } from 'react'
 import MenuItem from './MenuItem'
+import useRegisterModal from '@/app/hooks/useRegisterModal'
 
 export default function UserMenu() {
-    
+    const registerModal = useRegisterModal()
     const [isModalOpen, setIsModalOpen ] = useState(false)
 
     const toggleModal = useCallback(
@@ -35,7 +36,7 @@ export default function UserMenu() {
                     <div className='divide-y-2'>
                         <div>
                             <MenuItem 
-                            onClick={()=>{}} 
+                            onClick={registerModal.onOpen} 
                             label='Sign Up'
                             />
                             <MenuItem 
