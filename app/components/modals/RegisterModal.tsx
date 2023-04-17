@@ -33,10 +33,11 @@ const RegisterModal = () => {
     //register form submission function
     const onSubmit: SubmitHandler<FieldValues> = (data)=>{
         setIsLoading(true)
-        console.log(data);
         axios.post('/api/register', data)
         
-        .then(()=>{
+        .then((res)=>{
+            console.log(res);
+            
             registerModal.onClose()
         })
         .catch((e)=>{
