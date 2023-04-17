@@ -56,7 +56,9 @@ const LoginModal = () => {
                     toast.error(callback.error)
                 }
             }
-        )
+        ).finally(()=>{
+            setIsLoading(false)
+        })
     }
 
     const bodyContent = (
@@ -93,13 +95,29 @@ const LoginModal = () => {
                 outline
                 label='Continue with Google'
                 icon={FcGoogle}
-                onClick={()=>{}}
+                onClick={()=>{
+                    try {
+                        signIn('google')
+                        
+                    } catch (error) {
+                        console.log(error);
+                        
+                    }
+                }}
             />
             <Button
                 outline
                 label='Continue with Github'
                 icon={AiFillGithub}
-                onClick={()=>{}}
+                onClick={()=>{
+                    try {
+                        signIn('github')
+                        
+                    } catch (error) {
+                        console.log(error);
+                        
+                    }
+                }}
             />
             <div className="text-neutral-500 text-center mt-4 font-light">
                 <div className="flex items-center gap-2">
